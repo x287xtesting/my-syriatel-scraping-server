@@ -8,7 +8,8 @@ const { PAYLOAD_TEMPLATE } = require("./payload-template");
 const { randomUUID } = require("crypto");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 10000;
+console.log(process.env.PORT);
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
