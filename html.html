@@ -1,0 +1,925 @@
+GET /index.php HTTP/1.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+User-Agent: HTTPie/3.2.2
+Host: my.syriatel.sy
+
+
+
+HTTP/1.1 200 OK
+Date: Fri, 24 May 2024 15:30:15 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Powered-By: PHP/8.0.20
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: no-referrer-when-downgrade
+php.session.secure: on
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self' www.google-analytics.com maps.gstatic.com maps.googleapis.com stats.g.doubleclick.net;frame-ancestors 'self'; form-action 'self';  style-src 'self' fonts.googleapis.com 'unsafe-inline'; script-src 'self' maps.googleapis.com www.google-analytics.com  'unsafe-inline' 'unsafe-eval'; font-src 'self' fonts.gstatic.com ; img-src 'self' maps.gstatic.com  maps.googleapis.com data:
+Keep-Alive: timeout=5, max=1000
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+Set-Cookie: PHPSESSID=dsvt1rt4tana6595b5t4hioh22; path=/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>My Syriatel</title>
+
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+    <![endif]-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css" >
+    <link rel="stylesheet" href="css/custom.css" >
+            <link rel="stylesheet" href="css/rtl.css" >
+        <link rel="stylesheet" href="css/response.css" >
+    <!--[if IE]>
+    <link rel="stylesheet" href="css/ie.css" >
+    <![endif]-->
+
+<!--    <script type="text/javascript"  src="js/jquery.js"></script>-->
+    <script type="text/javascript"  src="js/jquery.js"></script>
+    <script type="text/javascript" defer src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!--[if lte IE 9]>
+    <script src="js/plugins/placeholder/jquery.placeholder.min.js"></script>
+    <script>    
+        $(document).ready(function() {
+            $('input, textarea').placeholder();
+        });
+    </script>
+    <![endif]-->
+
+
+
+
+
+<link rel="manifest" href="manifest.json">
+</script>
+<script>
+       if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+ })
+}
+
+      </script>
+
+</head>
+
+<body>
+
+<div class="modal fade" id="new-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <form class="form-horizontal " method="post" >
+                <div class="modal-body ">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 >تسجيل الدخول</h3>
+                    <div class="modal-result">
+                        <div class="addAlert"></div>
+                        <!--<p class="help-block">اهلا بكم في موقع خدمات سيريتل الالكترونية  </p>-->
+
+                        <div class="form-group" >
+                            <label class="col-xs-12 col-sm-3 control-label Title1">اسم المستخدم: &nbsp; </label>
+                            <div class="col-xs-12 col-sm-9">
+                                <input type="text" maxlength="30" value="" class="form-control" name="Username" placeholder="اسم المستخدم أو رقم الخليوي" id="Username">
+                                <!--<span class="help-block"> &nbsp; </span>-->
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" >
+                            <label class="col-xs-12 col-sm-3 control-label Title1">كلمة المرور: &nbsp; </label>
+                            <div class="col-xs-12 col-sm-9">
+                                <input autocomplete="off" type="password" maxlength="30" class="form-control" name="Password" placeholder="كلمة المرور" id="Password">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-new-footer2" >
+                        <button type="button" class="btn btn-default " id="Forget">نسيت كلمة المرور</button>
+                        <button type="button" class="btn btn-primary" id="Signin"  data-loading-text="جاري التحقق..." >تسجيل الدخول</button>
+                    </div>
+                </div>
+                <input name="token" id="token" value="FnrZiOn2Yg" hidden>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="container-fluid" id="TopHeader" >
+    <div class="container"  >
+        <div class="brands pull-left">My Syriatel</div>
+        <ul class="pull-right">
+            <li><button class="btn btn-danger btn-link hidden-xs" type="button" id="RegisterHeader">ليس لديك حساب؟</button>
+                <button class="btn btn-danger" type="button" id="SigninBut">تسجيل الدخول</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div role="navigation" class="navbar navbar-default ">
+    <div class="container">
+
+        <div class="navbar-collapse ">
+            <ul class="nav navbar-nav " id="myTab">
+                <li class="active"><a href="#Overview" data-toggle="tab">لمحة عامة</a></li>
+                <li><a href="#Benefits" data-toggle="tab">فوائد</a></li>
+                <li><a href="#messages" data-toggle="tab">أينما كنت</a></li>
+                <li><a href="#MobileApp" data-toggle="tab">تطبيق الموبايل</a></li>
+                <li><a href="#register-div" data-toggle="tab">ابدأ الآن</a></li>
+                <li ><a href="index.php?lang=en"  ><span class="english">English</span></a></li>            </ul>
+            <!--<form class="navbar-form navbar-right">
+             <input type="text" class="form-control" placeholder="Search...">
+           </form>-->
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="content">
+    <!--[if lte IE 8]>
+    <div class="alert alert-info marginTop alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3>معلومة مهمة:</h3>
+        <strong>لم يعد متصفحك مدعوم بعد الآن.</strong> بعض الميزات الهامة في موقعنا ربما لن تعمل بشكل جيد على  هذا الاصدار من متصفحك.<br />
+ ننصحك بترقية متصحفك أو تنزيل المتصحفات الحديثة مثل <a href="http://firefox.com" target="_blank">الفاير فوكس</a> أو <a href="http://www.google.com/chrome/eula.html?standalone=1" target="_blank">الكروم</a>.         <div class="clearfix"></div>
+    </div>
+    <![endif]-->
+
+
+
+    <div class="tab-content" id="home-tab">
+        <div class="tab-pane fade in active" id="Overview">
+            <div class="col-xs-12 col-sm-6">
+                <img src="images/logo.png" class="center-block syriatel_Logo" title=" Syriatel  سيريتل">
+            </div>
+            <div class="col-xs-12 col-sm-6 ">
+                <img src="images/newsletter_03.jpg" class="center-block" title="My Syriatel مركز خدمات سيريتل">
+            </div>
+
+            <div class="col-xs-12">
+                <h1>إدارة الأرقام</h1>
+                <p>تم تصميم مركز خدمات سيريتل الإلكتروني بطريقة تتيح للزبائن إمكانية التحكم بخطوطهم بشكل سهل وسريع وآمن دون الحاجة لزيارة أحد مراكز الخدمة.  </p>
+                <p>ويستفيد منه جميع الزبائن المشتركين بالخطوط لاحقة الدفع وبطاقات مسبقة الدفع للجيلين الثاني والثالث وخطوط الشركات.</p>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="Benefits">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-3 col-md-2 ">
+                    <i class="icon icon-4x icon-gears tabIcons" ></i>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 text-align-center">
+                    <h3>أنت المتحكم دائماً</h3>
+                    <p>ابق دائماً على اطلاع بالمعلومات الخاصة بأرقامك، سواء كانت من الجيل الثاني أو الثالث، بالإضافة لإمكانية تفعيل وإلغاء العديد من الخدمات على أرقامك.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-3 col-md-2 " >
+                    <i class="icon icon-4x  icon-envelope-alt tabIcons" ></i>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 text-align-center">
+                    <h3>5 رسائل نصية محلية مجانية</h3>
+                    <p>يمكنك إرسال خمس رسائل مجانية  شهرياً داخل سورية عبر موقع خدمات سيريتل الإلكتروني. </p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-3 col-md-2 ">
+                    <i class="icon icon-4x icon-magic tabIcons" ></i>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 text-align-center">
+                    <h3>سهل الاستخدام</h3>
+                    <p>لمركز خدمات سيريتل الإلكتروني مزايا عديدة، ومنها إمكانية تعديل قائمة "حبايب قرايب" والتحويل بين منتجات ياهلا وإهداء الرصيد والتعديل على قائمة أرقام خدمة "ستوب" بالإضافة إلى إيقاف بطاقات ياهلا مسبقة الدفع مؤقتاً والتحويل بين باقات سيرف لاحق الدفع. </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-3 col-md-2 ">
+                    <i class="icon icon-4x icon-lock tabIcons" ></i>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-10 text-align-center">
+                    <h3>آمن ومضمون</h3>
+                    <p>تمّ تصميم مركز خدمات سيريتل الإلكتروني بأعلى معايير الأمان والحماية، وذلك لحماية معلومات زبائننا ومنع أي اختراق ومنع الدخول إلى أي حساب إلا باستخدام اسم المستخدم وكلمة المرور الخاصة به. </p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="messages">
+            <div class="col-xs-12 col-sm-6 col-md-7">
+                <h1>الوصول الى لوحة التحكم من أي جهاز</h1>
+                <p> يمكن استخدام مركز خدمات سيريتل الإلكتروني عن طريق جميع أنواع أجهزة الكمبيوتر والأجهزة الخليوية</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5 ">
+                <img src="images/benefits-devices-search.png" class="center-block" >
+            </div>
+
+        </div>
+        <div class="tab-pane fade " id="MobileApp">
+            <div class="col-xs-12 col-sm-6 col-md-8">
+                <h1>هل أنت مستعد لاستخدام تطبيق <span >"أقرب إليك"</span>؟</h1>
+ <p> تمتع بالحصول على خدمات سيريتل بسرعة إضافة إلى إدارتها بسهولة عبر تطبيق (أقرب إليك) للهواتف الخليوية الذكية من سيريتل.<a href="https://app.syriatel.sy/a/AAE" target="_blank" class="col-xs-12 " >
+                <h3 style="  background-color: gray;text-align: center!important;display: block;color: #626871;cursor: pointer;">
+                رابط تحميل مباشر</h3> </a></p>            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                <br>
+
+
+                <div class="col-xs-12 marginTop15" >
+                    <!--	    	<a href="http://wservices.syriatel.sy/Selfservice2/Download/SelfService2.IPA" class="col-xs-12 btn btn-lg btn-danger " ><i class="icon icon-apple fontSize24 " ></i> تحميل نسخة الـ iOS</a>-->
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="register-div">
+            <div class="col-xs-12 col-sm-12 col-md-8 ">
+                <h2>انشاء حساب جديد </h2>
+                <p >&nbsp;  </p>
+                <form class="form-horizontal " autocomplete="off" role="form" id="signUpForm" action="index.php?register=1" method="post">
+                    <div class="form-group" >
+                        <div class="col-sm-offset-3 col-sm-9" id="AjaxResult" >
+                                                    </div>
+                    </div>
+                    <input type="hidden" name="csrf_token" id="csrf_token" value="FnrZiOn2Yg"/>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3 Title1" >اسم المستخدم: </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="اسم المستخدم" id="Username2" name="Username2" value="" >
+                            <span class="help-block">يجب أن يكون اسم المستخدم باللغة الإنكليزية وأن يكون عدد الحروف بين 3 و 20 حرفاً</span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3 Title1">كلمة المرور: </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="input-group">
+                                <input type="password" class="form-control" autocomplete="off" placeholder="كلمة المرور" id="Password1" name="Password1" value="" autocomplete="off"  >
+                                <div class="input-group-addon"></div>
+                            </div>
+                            <span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3 Title1">تأكيد كلمة المرور: </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input type="password" class="form-control" autocomplete="off" placeholder="تأكيد كلمة المرور" id="Password2" name="Password2" value="" autocomplete="off"  >
+                            <span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-10"><h3 class="redColor">لإكمال عملية التسجيل يجب عليك إدخال بريدك الإلكتروني أو رقم جوالك:</h3> </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3  Title1">رقم الخليوي: </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="رقم الخليوي" id="Mobile" name="Mobile" value="" >
+                            <span class="help-block">أرقام فقط. مثال: 0933222111 </span>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3  Title1">البريد الالكتروني: </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="البريد الالكتروني" id="email" name="email" value="" >
+                            <span class="help-block">مثال: user@syriatel.sy</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        <label class="col-xs-0 col-sm-3 control-label Title1">&nbsp; </label>
+                        <div class="col-xs-0 col-sm-offset-3 col-sm-9">
+                            
+	<div  >
+    	<span class="Title1 redColor">الرجاء التأكيد بأن العملية غير اوتوماتيكية </span><br> 
+        <span class="TitleValue1">اكتب الرقم الموجود بالصورة في المربع أدناه</span>
+   </div>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="right" style="direction:ltr" class="CaptchaDiv">
+  <tr>
+    <td  align="right"><button class="btn btn-success btn-lg refCaptcha" type="button" ><i class="icon-refresh"></i></button></td>
+    <td width="170" align="right"><img src="captcha/captchaImg.php?uid=1716564615" width="161"  height="75"   class="theCaptcha" /></td>
+  </tr>
+</table>
+<div style="clear:both">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="control-label col-xs-12 col-sm-3 Title1">الرقم: &nbsp; </label>
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="form-inline">
+                                <input name="captcha" id="captchaId" autocomplete="off" type="text" maxlength="5"  class="form-control"  placeholder="الرقم" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label col-xs-12 col-sm-3 ">  </label>
+                        <div class="col-md-9">
+                            <button class="btn btn-primary btn-lg" type="button" id="RegisterBut">إنشاء حساب جديد</button>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+            <footer>
+            	<!--<div class="clearfix"></div>-->
+                <div class="col-xs-12"> جميع الحقوق محفوظة ©  2024 سيريتل موبايل تيليكوم.</div>
+            </footer>
+
+
+
+<script type="text/javascript" async >
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ // ga('create', 'UA-30368329-1', 'auto');
+ // ga('send', 'pageview');
+
+
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7F8NXSEDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7F8NXSEDB');
+</script>
+
+
+
+
+<script type="text/javascript" >
+    $(document).ready(function () {
+        $(".refCaptcha").click(function ()
+        {
+            $CaptchaImg=$(this).parents(".CaptchaDiv").find('img');
+            var $oldSrc=$CaptchaImg.attr('src')+"111";
+            $CaptchaImg.attr('src',$oldSrc);
+        });
+
+        $(document).on('click','#Signin',function () {
+            Singin();
+        });
+        $("#Username").keyup(function(e)
+        {
+            if(e.keyCode == 13)
+                Singin();
+            return false;
+        });
+        $("#Password").keyup(function(e)
+        {
+            if(e.keyCode == 13)
+                Singin();
+            return false;
+        });
+
+        function Singin()
+        {
+            $app='1';
+            
+            var $isValid2=true;
+
+            var token =$('#token').val();
+            var $uc=$("#Username").val();
+            var $pc=$("#Password").val();
+            if(  ($uc =="")||($pc ==""))
+            {
+                $('#new-modal .modal-body .modal-result .addAlert').html('<div class="alert alert-danger">يرجى تعبئة كافة الحقول </div>');
+                $isValid2=false;
+            }
+            $captcha='';
+//	console.log($('#captchaId'));
+            if($('#captchaId2').length > 0)
+            {
+                $captcha=$('#captchaId2').val();
+                if( ($captcha.length!=5)||($captcha=='') )
+                {
+                    $('#new-modal .modal-body .modal-result .addAlert').html('<div class="alert alert-danger">الرجاء التأكيد بأن العملية غير أوتوماتيكية </div>');
+                    $isValid2=false;
+                }
+            }
+
+            if(!$isValid2)
+            {
+
+            }
+            else
+            {
+                $('#new-modal .modal-body .modal-result .addAlert').html('')
+                var btn = $('#Signin')
+                btn.button('loading');
+
+                $('#Username').attr('disabled',true);
+                $('#Password').attr('disabled',true);
+                $('#Forget').attr('disabled',true);
+
+                $url='ws/checkLogin.php';
+                $.ajax({
+                    url: $url,
+                    type: 'POST',
+                    data: 'username='+$uc+'&password='+$pc+"&app="+$app+"&captcha="+$captcha+"&token="+token,
+                    timeout: function(result){
+                  //   console.log("timeout");
+                        $('#AjaxResult').html('<div class="alert alert-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        $('#Forget').attr('disabled',false);
+                        $('#Username').attr('disabled',false);
+                        $('#Password').attr('disabled',false);
+                    },
+                    error: function(errorss){
+                    //    console.log(errorss);
+                        $('#AjaxResult').html('<div class="alert alert-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        $('#Forget').attr('disabled',false);
+                        $('#Username').attr('disabled',false);
+                        $('#Password').attr('disabled',false);
+                    },
+                    success: function(result){
+                     //   console.log(result);
+                        $res=result.split('|');
+
+                        if($res=='ShowCaptcha')
+                        {
+                            window.location.href='index.php?captcha=1';
+                            return false;
+                        }
+                        if($res[0]=='SUCCESSFULL')
+                        {
+                            if($res[2]=='ACTIVE')
+                            {
+                                $('#new-modal .modal-body .modal-result').html('<div class="addAlert"></div><div class="well"><strong>عزيزي المشترك، </strong><br /> إن حسابك غير مفعل.  <button type="button" class="btn btn-success" id="ActivateAccount" data-loading-text="جاري تفعيل الحساب..." lang="'+$res[1]+'" >تفعيل الحساب</button></div>');
+                                $('.modal-new-footer2').hide();
+                            }
+                            else
+                                window.location.href=$res[1];
+                        }
+                        else
+                        {
+                            $('#new-modal .modal-body .modal-result .addAlert').html(result);
+                            btn.button('reset');
+                            $('#Forget').attr('disabled',false);
+                            $('#Username').attr('disabled',false);
+                            $('#Password').attr('disabled',false);
+                        }
+
+                    }
+                });
+
+            }
+        }
+
+
+        $(document).on('click','#Forget',function () {
+            $('#new-modal .modal-body h3').html('نسيت كلمة المرور');
+            $('#new-modal .modal-body .modal-result').html('<div class="addAlert"></div><div class="form-group"><label class="col-xs-12 col-sm-3 control-label Title1">الخليوي أو البريد الالكتروني: &nbsp; </label><div class="col-xs-12 col-sm-9"><input type="text" id="ResetEmail" placeholder="الخليوي أو البريد الالكتروني" name="ResetEmail" class="form-control" value="" maxlength="40"></div></div>');
+            $('.modal-new-footer2').html('<button type="button" class="btn btn-default" id="ResetAlready" >لديك رمز التحقق؟ </button> <button type="button" class="btn btn-primary" id="ResetVerification" data-loading-text="جاري ارسال الرمز..." >متابعة</button> ');
+        });
+
+        $(document).on('click','#ResetAlready',function () {
+            $gsmNo=$('#ResetEmail').val();
+            if($gsmNo !='')
+            {
+                resultNew='<div class="addAlert"></div><div class="form-group "><label class="col-xs-12 Title1">اكتب الرمز: </label><div class="col-xs-12 "><input type="text" class="form-control" placeholder="اكتب الرمز" id="verCode" name="verCode"  ><span class="help-block">الرجاء عدم إعطاء هذا الرمز لأي جهة كانت</span></div></div><div class="form-group "><label class="col-xs-12 Title1">كلمة المرور الجديدة: </label><div class="col-xs-12 "><input type="password" class="form-control" placeholder="كلمة المرور الجديدة" id="Password5" name="Password5" ><span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span></div></div><div class="form-group "><label class="col-xs-12  Title1">تأكيد كلمة المرور: </label><div class="col-xs-12 "><input type="password" class="form-control" placeholder="تأكيد كلمة المرور" id="Password6" name="Password6" ><span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span></div></div>';
+                $('#new-modal .modal-body .modal-result').html(resultNew);
+                $('.modal-new-footer2').html('<button type="button" class="btn btn-default" data-dismiss="modal" id="CloseModal">إلغاء</button> <button type="button" class="btn btn-primary" id="ResetReset" data-loading-text="الرجاء الانتظار..." >استعادة كلمة المرور</button><input type="hidden" id="TheGsm" value="'+$gsmNo+'"> ');
+
+            }else {
+                $('.addAlert').html('<div class="alert alert-danger">الرجاء اكتب رقم الخليوي أو البريد الالكتروني</div>')
+            }
+        });
+
+        $(document).on('click','#ResetVerification',function () {
+
+            $gsmNo=$('#ResetEmail').val();
+            if($gsmNo !='')
+            {
+                var btn = $(this);
+                btn.button('loading');
+                $('#ResetAlready').hide();
+//				$('#ResetVerification').hide();
+
+                $('#ResetEmail').attr('disabled',true);
+
+                $url='ws/RequestCode.php';
+                $.ajax({
+                    url: $url,
+                    type: 'POST',
+                    data: 'gsmNo='+$gsmNo+'&actionId=16',
+                    timeout: function(result){
+                        $('#new-modal .modal-body .modal-result').html('<div class="alert alert-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        $('#ResetEmail').attr('disabled',false);
+                        btn.button('reset');
+                    },
+                    complete: function(result){
+                    },
+                    error: function(errorss){
+                        $('#new-modal .modal-body .modal-result').html('<div class="alert alert-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        $('#ResetEmail').attr('disabled',false);
+                        btn.button('reset');
+                    },
+                    success: function(result){
+                        $('#ResetEmail').attr('disabled',false);
+                        btn.button('reset');
+                        $('#ResetVerification').hide();
+                        if(result=='1')
+                        {
+                            resultNew='<div class="addAlert"></div><div class="form-group "><label class="col-xs-12 Title1">اكتب الرمز: </label><div class="col-xs-12 "><input type="text" class="form-control" placeholder="اكتب الرمز" id="verCode" name="verCode"  ><span class="help-block">الرجاء عدم إعطاء هذا الرمز لأي جهة كانت</span></div></div><div class="form-group "><label class="col-xs-12 Title1">كلمة المرور الجديدة: </label><div class="col-xs-12 "><input type="password" class="form-control" placeholder="كلمة المرور الجديدة" id="Password5" name="Password5" ><span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span></div></div><div class="form-group "><label class="col-xs-12  Title1">تأكيد كلمة المرور: </label><div class="col-xs-12 "><input type="password" class="form-control" placeholder="تأكيد كلمة المرور" id="Password6" name="Password6" ><span class="help-block">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </span></div></div>';
+                            $('#new-modal .modal-body .modal-result').html(resultNew);
+                            $('.modal-new-footer2').html('<button type="button" class="btn btn-default" data-dismiss="modal" id="CloseModal">إلغاء</button> <button type="button" class="btn btn-primary" id="ResetReset" data-loading-text="الرجاء الانتظار..." >استعادة كلمة المرور</button><input type="hidden" id="TheGsm" value="'+$gsmNo+'"> ');
+
+
+                        }
+                        else
+                        {
+                            $('#new-modal .modal-body .modal-result').html(result);
+
+                            btn.hide();
+                        }
+
+                    }
+                });
+
+
+            }else {
+                $('.addAlert').html('<div class="alert alert-danger">الرجاء اكتب رقم الخليوي أو البريد الالكتروني</div>')
+            }
+
+        });
+
+
+
+
+        $(document).on('click','#ResetReset',function () {
+
+            var btn = $(this)
+
+            $verCode=$('#verCode').val();
+            $gsmNo=$('#new-gsm-added').val();
+            $('#new-modal .modal-body .modal-result .addAlert').html('');
+
+            var $p1=$("#Password5");
+            var $p2=$("#Password6");
+            var $p1_f= $p1.val();
+            var $p2_f= $p2.val();
+
+            var $isValid=true;
+
+            var gsmReg = /^([0-9]{6,6})$/;
+            if( !gsmReg.test( $verCode ) ) {
+                $('#new-modal .modal-body .modal-result .addAlert').html('<div class="alert alert-danger">رمز التحقق يجب أن يكون من ستة أرقام</div>');
+                $isValid=false;
+            }
+
+
+            if($isValid)
+            {
+                if( ($p1_f == "")||($p2_f == "") )
+                {
+                    $('#new-modal .modal-body .modal-result .addAlert').html('<div class="alert alert-danger">يرجى تعبئة كافة الحقول</div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                if( ($p1_f.length < 8)||($p1_f.length > 21) )
+                {
+                    $('#new-modal .modal-body .modal-result .addAlert').html('<div class="alert alert-danger">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                if ($p1_f != $p2_f)
+                {
+                    $('#new-modal .modal-body .modal-result .addAlert').html("<div class='alert alert-danger'>كلمتي المرور غير متطابقتان</div>");
+                    $isValid=false;
+                }
+            }
+
+
+            if($isValid)
+            {
+                btn.button('loading');
+                $newPass=$p1_f;
+                $gsmNo=$('#TheGsm').val();
+                $('#CloseModal').attr('disabled',true);
+
+
+                $url='ws/doResetPass.php';
+                $.ajax({
+                    url: $url,
+                    type: 'POST',
+                    data: 'newPass='+$newPass+'&gsmNo='+$gsmNo+'&code='+$verCode,
+                    timeout: function(result){
+                        $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        btn.button('reset');
+                        $('#CloseModal').attr('disabled',false);
+                    },
+                    complete: function(result){
+                    },
+                    error: function(errorss){
+                        $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                        btn.button('reset');
+                        $('#CloseModal').attr('disabled',false);
+                    },
+                    success: function(result){
+
+                        btn.button('reset');
+                        if(result=='1')
+                        {
+                            resultNew='<div class="alert alert-success">لقد تم تغيير كلمة المرور بنجاح</div>';
+                            $('#new-modal .modal-body .modal-result').html(resultNew);
+                            $('.modal-new-footer2').html('<button type="button" class="btn btn-primary" id="ResetSignin" >تسجيل الدخول</button> ');
+                        }
+                        else
+                        {
+                            $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger">'+result+'</div>');
+                            $('#CloseModal').attr('disabled',false);
+                        }
+                    }
+                });
+
+            }
+        });
+
+
+        $(document).on('click','#SigninBut',function () {
+            $('#new-modal').modal('show');
+		//	alert('a');
+        });
+        $(document).on('click','#SigninBut2',function () {
+            $('#new-modal').modal('show');
+        });
+
+        
+        
+        
+        $('#new-modal').on('hidden.bs.modal', function (e) {
+            $('#new-modal .modal-body').html('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3 >تسجيل الدخول</h3><div class="modal-result"><div class="addAlert"></div><div class="form-group" ><label class="col-xs-12  col-sm-3 control-label Title1">اسم المستخدم: &nbsp; </label><div class="col-xs-12 col-sm-9"><input type="text" maxlength="20" value="" class="form-control" name="Username" placeholder="اسم المستخدم أو رقم الخليوي" id="Username"></div></div><div class="form-group" ><label class="col-xs-12 col-sm-3 control-label Title1">كلمة المرور: &nbsp; </label><div class="col-xs-12 col-sm-9"><input type="password" maxlength="30" class="form-control" name="Password" placeholder="كلمة المرور" id="Password"></div></div></div><div class="modal-new-footer2" ><button type="button" class="btn btn-default" id="Forget">نسيت كلمة المرور</button> <button type="button" class="btn btn-primary" id="Signin"  data-loading-text="جاري التحقق..." >تسجيل الدخول</button></div>');
+
+        });
+        $(document).on('click','#ResetSignin',function () {
+            $('#new-modal .modal-body').html('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3 >تسجيل الدخول</h3><div class="modal-result"><div class="addAlert"></div><div class="form-group" ><label class="col-xs-12  col-sm-3 control-label Title1">اسم المستخدم: &nbsp; </label><div class="col-xs-12 col-sm-9"><input type="text" maxlength="20" value="" class="form-control" name="Username" placeholder="اسم المستخدم أو رقم الخليوي" id="Username"></div></div><div class="form-group" ><label class="col-xs-12 col-sm-3 control-label Title1">كلمة المرور: &nbsp; </label><div class="col-xs-12 col-sm-9"><input type="password" maxlength="30" class="form-control" name="Password" placeholder="كلمة المرور" id="Password"></div></div></div><div class="modal-new-footer2" ><button type="button" class="btn btn-default" id="Forget">نسيت كلمة المرور</button> <button type="button" class="btn btn-primary" id="Signin"  data-loading-text="جاري التحقق..." >تسجيل الدخول</button></div>');
+
+        });
+
+
+        $("#RegisterBut").click(function ()
+
+        {
+
+            var $u=$("#Username2");
+            var $username_f= $u.val();
+            var $p1=$("#Password1");
+            var $p2=$("#Password2");
+            var $p1_f= $p1.val();
+            var $p2_f= $p2.val();
+
+
+            var $isValid=true;
+
+            if($isValid)
+            {
+                if($username_f == "")
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">يجب أن يكون اسم المستخدم باللغة الإنكليزية وأن يكون عدد الحروف بين 3 و 20 حرفاً</div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                var userReg = /[a-zA-Z]/;
+                if( !userReg.test( $username_f ) ) {
+                    $('#AjaxResult').html('<div class="alert alert-danger">يجب أن يكون اسم المستخدم باللغة الإنكليزية وأن يكون عدد الحروف بين 3 و 20 حرفاً</div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                $whiteSpace= $username_f.indexOf(" ");
+                if($whiteSpace!="-1")
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">لا تكتب فراغ ضمن اسم المستخدم</div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                if( ($username_f.length < 3)||($username_f.length > 21) )
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">يجب أن يكون اسم المستخدم باللغة الإنكليزية وأن يكون عدد الحروف بين 3 و 20 حرفاً</div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                if( ($p2_f.length < 8)||($p2_f.length > 21) )
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">يجب أن تتألف كلمة المرور من 8 أحرف على الأقل (و بحد أقصى لغاية 20 حرفاً)، وأن تحتوي على رقم واحد و حرف واحد على الأقل </div>');
+                    $isValid=false;
+                }
+            }
+            if($isValid)
+            {
+                if ($p1_f != $p2_f)
+                {
+                    $('#AjaxResult').html("<div class='alert alert-danger'>كلمتي المرور غير متطابقتان</div>");
+                    $isValid=false;
+                }
+            }
+
+            if($isValid)
+            {
+                var $cl1=$('.password_strength').hasClass('password_strength_1');
+                var $cl2=$('.password_strength').hasClass('password_strength_2');
+                if( ($cl1)||($cl2) )
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">كلمة المرور يجب ان تكون غير ضعيفة</div>');
+                    $isValid=false;
+                }
+            }
+
+            if($isValid)
+            {
+                var $g=$("#Mobile");
+                var $gsm_f= $g.val();
+                if($gsm_f != "")
+                {
+                    var gsmReg = /^(09[0-9]{8,8})$/;
+                    if( !gsmReg.test( $gsm_f ) )
+                    {
+                        $('#AjaxResult').html('<div class="alert alert-danger">عذراً، لقد قمت بإدخال رقم خاطئ. يرجى التأكد من إدخال رقم الخليوي كاملاً والمؤلف من 10 خانات. مثال:09XXXXXXXX</div>');
+                        $isValid=false;
+                    }
+                }
+            }
+            if($isValid)
+            {
+                var $e=$("#email");
+                var $email_f= $e.val();
+                if($email_f != "")
+                {
+                    var emailReg = /^([\w\-\.]{2,}\@[a-zA-Z-0-9]{2,}\.[\w\-]{2,4})/;
+                    if( !emailReg.test( $email_f ) )
+                    {
+                        $('#AjaxResult').html('<div class="alert alert-danger">خطأ في عنوان البريد الالكتروني</div>');
+                        $isValid=false;
+                    }
+                }
+            }
+            if($isValid)
+            {
+                var $g=$("#Mobile");
+                var $gsm_f= $g.val();
+                var $e=$("#email");
+                var $email_f= $e.val();
+                if( ($email_f == "")&&($gsm_f == "") )
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">الرجاء اكتب رقم الخليوي أو البريد الالكتروني</div>');
+                    $isValid=false;
+                }
+            }
+
+            if($isValid)
+            {
+                if($('#captchaId').val()=="")
+                {
+                    $('#AjaxResult').html('<div class="alert alert-danger">الرجاء التأكيد بأن العملية غير اوتوماتيكية</div>');
+                    $isValid=false;
+                }
+            }
+
+
+
+            if(!$isValid)
+            {
+                $("html, body").animate({scrollTop:100}, '500', 'swing', function() {});
+            }
+            if($isValid)
+            {
+                $('#AjaxResult').html('');
+                $('#signUpForm').submit();
+            }
+
+        });
+
+
+
+        $(document).on('click','#ActivateAccount',function () {
+            $uid=$(this).attr('lang');
+            var btn = $(this)
+            btn.button('loading');
+
+
+            $url='ws/ActivateAccount.php';
+            $.ajax({
+                url: $url,
+                type: 'POST',
+                data: 'uid='+$uid,
+                timeout: function(result){
+                    $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                    btn.button('reset');
+                },
+                complete: function(result){
+                },
+                error: function(errorss){
+                    $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger"><h3>خطأ</h3> عذراً لم تتم العملية، يرجى المحاولة لاحقاً</div>');
+                    btn.button('reset');
+                },
+                success: function(result){
+
+                    btn.button('reset');
+//							btn.hide();
+                    if(result=='1')
+                    {
+                        resultNew='<div class="alert alert-success"><span class="Title1">تم تفعيل الحساب بنجاح</span></div>';
+                        $('#new-modal .modal-body .modal-result ').html(resultNew);
+
+                        setTimeout(function(){
+                            $('#new-modal').modal('hide');
+                            window.location.href='index.php?captcha=1';
+
+                        }, 3000);
+                        // $('#GSM-'+$gsmNo).parents('tr').remove();
+
+                    }
+                    else
+                    {
+                        $('#new-modal .modal-body .modal-result .addAlert').html('<div class="text-danger">'+result+'</div>');
+                    }
+                }
+            });
+
+        });
+
+
+
+    });
+</script>
+<script type="text/javascript" defer src="js/jquery.password_strength_ar.js"></script>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        var height = 40;
+        if($("#footer").length > 0) {
+            height += $("#footer").outerHeight();
+        }
+        $("#content").css({
+            "min-height": "auto",
+            "height": $(window).height() - height
+        });
+
+        $('#Password1').password_strength();
+
+    });
+</script>
+<script  type="text/javascript">
+    $(document).ready(function () {
+
+
+        $(document).on('click', '#RegisterHeader', function(e){
+            $('#myTab a[href="#register-div"]').tab('show');
+        });
+
+           $(document).on('click', '.registerBut', function(e){
+            e.preventDefault();
+            $('#new-modal').modal('hide');
+            $('#myTab a[href="#register-div"]').tab('show');
+        })
+
+
+    });
+</script>
+</body>
+</html>

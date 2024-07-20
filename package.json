@@ -1,0 +1,22 @@
+{
+	"name": "syriatel-server",
+	"version": "1.0.0",
+	"description": "A relay server to get the login cookies from https://my.syriatel.sy/",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon app.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@types/node": "^20.12.12",
+		"body-parser": "^1.20.2",
+		"cors": "^2.8.5",
+		"express": "^4.19.2",
+		"jsdom": "^24.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	}
+}
